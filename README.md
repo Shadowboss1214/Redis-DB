@@ -1,4 +1,19 @@
+# UNIVERSIDAD AUTÓNOMA DE YUCATÁN
+
+# Facultad de matemáticas
+
+# Modelado de datos
+
+# Maestro: Luis Basto
+
+# Equipo 1:
+  - **Corona Rivas Daniel Alberto**
+  - **Martin Alamilla César Adrian**
+  - **Salazar Bastarrachea Gael Francisco**
+
+
 # Redis-DB
+
 ## ¿En que consiste?
 Este dataset es un registro histórico de reproducciones de Spotify (streaming history). Contiene datos detallados sobre qué canciones escuchó un usuario, cuándo, dónde y cómo interactuó con ellas (si las saltó, si las escuchó en aleatorio, etc.).
 
@@ -18,6 +33,8 @@ Cubre un periodo de más de 11 años, desde julio de 2013 hasta diciembre de 202
 - **skipped**: `TRUE` o `FALSE` dependiendo de si el usuario saltó a la siguiente canción
 
 ## Modelado de dataset
+Redis no es una base de datos clave-valor simple; en su documentación oficial se define como un almacén de estructuras de datos en memoria (In-memory Data Structure Store).
+A diferencia de otras bases de datos NoSQL que almacenan JSONs complejos u objetos opacos, Redis permite acceder y manipular tipos de datos abstractos directamente. El modelo se basa en un sistema de diccionario o tabla de hashes que relacionan una llave a un contenido almacenado en un índice.
 
 ## Herramientas
 Se utilizaron principalmente herramientas como Docker en Ubuntu, ya que Redis está diseñado para ejecutarse de manera óptima en sistemas basados en Linux. El uso de contenedores permitió crear un entorno aislado y reproducible, facilitando la instalación y configuración del servidor sin necesidad de hacerlo directamente en la máquina anfitriona. Además, se empleó el Redis Workbench para verificar la conectividad con la base de datos y ejecutar consultas de manera interactiva, aunque cabe destacar que Redis puede integrarse fácilmente en lenguajes de programación de alto nivel como C# o Python, lo que ofrece gran flexibilidad para el desarrollo de aplicaciones. El servidor se configuró de manera local debido a las limitaciones de almacenamiento en la nube: la plataforma de Redis imponía un límite de 30 MB, mientras que el dataset utilizado tiene un tamaño aproximado de 58 MB, lo que hizo inviable su carga en el servicio remoto. Por esta razón, se optó por manejarlo en un entorno local, garantizando un mejor control sobre los recursos y la disponibilidad de los datos. Finalmente, es importante señalar que la conexión a la base de datos puede realizarse directamente desde el contenedor de Docker sin necesidad de utilizar el Workbench, lo que permite un flujo de trabajo más ligero y automatizado en escenarios donde se busca integrar Redis con aplicaciones externas o scripts personalizados.
@@ -37,7 +54,7 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
 
 ## Operaciones CRUD en Redis
 
-### 🟢 CREATE (Crear)
+### CREATE (Crear)
 - **HSET repro:nueva01 track_name "Flowers" artist_name "Miley Cyrus" ms_played "320000" platform "iOS"**  
   Crea un nuevo *hash* llamado `repro:nueva01` con varios campos (nombre de la canción, artista, duración en milisegundos y plataforma).
 
@@ -55,7 +72,7 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
 
 ---
 
-### 🔵 READ (Leer)
+### READ (Leer)
 - **HGETALL repro:1**  
   Obtiene todos los campos y valores del hash `repro:1`.
 
@@ -73,7 +90,7 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
 
 ---
 
-### 🟠 UPDATE (Actualizar)
+### UPDATE (Actualizar)
 - **HSET repro:nueva01 platform "Windows 11"**  
   Actualiza el campo `platform` del hash `repro:nueva01` con el valor `"Windows 11"`.
 
@@ -91,7 +108,7 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
 
 ---
 
-### 🔴 DELETE (Eliminar)
+### DELETE (Eliminar)
 - **DEL repro:200000**  
   Elimina completamente la clave `repro:200000` y sus datos asociados.
 
@@ -105,5 +122,7 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
   Elimina `"The Beatles"` del conjunto `artistas:favoritos`.
 
 - **FLUSHDB**  
-  Borra todas las claves y datos de la base de datos actual. ⚠️ (acción destructiva).
+  Borra todas las claves y datos de la base de datos actual. (Es equivalente a un drop database en SQL).
 
+# REFERENCIAS
+Docs. (s. f.). Docs. https://redis.io/docs/latest/
