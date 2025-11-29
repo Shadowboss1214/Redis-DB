@@ -1,7 +1,7 @@
 # Redis-DB
 ## ¿En que consiste?
 ## Diccionario de datos del dataset
-.spotify_track_uri: "Spotify URI that uniquely identifies each track in the form of ""spotify:track:<base-62 string>"""
+. spotify_track_uri: "Spotify URI that uniquely identifies each track in the form of ""spotify:track:<base-62 string>"""
 .ts:Timestamp indicating when the track stopped playing in UTC (Coordinated Universal Time)
 .platform: Platform used when streaming the track
 .ms_played: Number of milliseconds the stream was played
