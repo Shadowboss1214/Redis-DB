@@ -1,14 +1,15 @@
 # Redis-DB
 ## ¿En que consiste?
 ## Diccionario de datos del dataset
-- spotify_track_uri: "Spotify URI that uniquely identifies each track in the form of ""spotify:track:<base-62 string>"""
-- ts:Timestamp indicating when the track stopped playing in UTC (Coordinated Universal Time)
-- platform: Platform used when streaming the track
-- ms_played: Number of milliseconds the stream was played
-- track_name: Name of the track
-- artist_name: Name of the artist
-- album_name: Name of the album
-- reason_start: Why the track started
-- reason_end: Why the track ended
-- shuffle: TRUE or FALSE depending on if shuffle mode was used when playing the track
-- skipped: TRUE of FALSE depending on if the user skipped to the next song
+- **spotify_track_uri**: Spotify URI que identifica de forma única cada pista en el formato `spotify:track:<base-62 string>`
+- **ts**: Marca de tiempo (Timestamp) que indica cuándo la pista dejó de reproducirse en UTC (Coordinated Universal Time)
+- **platform**: Plataforma utilizada para reproducir la pista
+- **ms_played**: Número de milisegundos que se reprodujo la pista
+- **track_name**: Nombre de la pista
+- **artist_name**: Nombre del artista
+- **album_name**: Nombre del álbum
+- **reason_start**: Razón por la que la pista comenzó
+- **reason_end**: Razón por la que la pista terminó
+- **shuffle**: `TRUE` o `FALSE` dependiendo de si se usó el modo aleatorio al reproducir la pista
+- **skipped**: `TRUE` o `FALSE` dependiendo de si el usuario saltó a la siguiente canción
+
