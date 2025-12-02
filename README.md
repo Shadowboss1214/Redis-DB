@@ -124,5 +124,8 @@ Una vez ya instalado todo y teniendo el script solo ejecútelo y verá como se i
 - **FLUSHDB**  
   Borra todas las claves y datos de la base de datos actual. (Es equivalente a un drop database en SQL).
 
+# Enlace al repositorio de la aplicación web
+**[Haz clic aquí para ver el repositorio](https://github.com/Shadowboss1214/proyecto-nosql-spotify.git)**
+
 # REFERENCIAS
 Docs. (s. f.). Docs. https://redis.io/docs/latest/
